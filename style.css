@@ -1,0 +1,172 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+
+    --ff-primary: 'Poppins', sans-serif;
+    --text-color: #303030;
+
+    --hue: 194;
+    --primary-color: hsl(var(--hue), 100%, 63%);
+}
+
+body{
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background-color: rgb(250, 254, 255);
+}
+
+body *{ /*tudo dentro do body*/
+
+    font-family: var(--ff-primary);
+}
+
+
+
+.sr-only{ /*temos aqui uma class flexível que eu posso usar em outros momentos da minha aplicação, que eu quiser deixar um texto mais quero esconder esse texto via css (meu usuário não vê mais meu leitor de tela vê)*/
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden; /*não permite que transborde da caixa, nesse caso "dentro de 1px de altura"*/
+    clip: rect(0,0,0,0);
+    white-space: nowrap; /*ele não faz a quebra*/
+    border-width: 0;
+
+}
+
+#app {
+    padding: 2rem;
+    max-width: 500px;
+    margin: 0 auto; /*alinha ao centro*/
+
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 2.5rem 0; /*0 nas laterais*/
+}
+
+
+header h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+}
+
+.search input{
+    height: 3.2rem;
+    border: 1px solid #ccc;
+    border-radius: .4rem 0 0 .4rem;
+    padding: 0 .8rem; /*cima baixo 0 e lateral .8rem*/
+
+}
+
+.search button{
+    background-color: var(--primary-color);
+    border-radius: 0 .4rem .4rem 0;
+    height: 3.2rem;
+    border: none;
+    padding: 0 1rem;
+
+    cursor: pointer;
+}
+
+.search button:hover {
+    filter: brightness(1.1);
+}
+
+table *{
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+table{
+    width: 100%;
+
+    border-collapse: collapse; /*para juntar e nn ficar separado a cor azul que fica no fundo no usuario, repositorio e seguidores*/
+
+    /* O priemiro 0 = x , 1rem =  y ,  2rem =  o borrado kkk , -1rem = espalhamento dela*/
+    box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.3);
+}
+
+
+
+table th{
+   background: var(--primary-color);
+   text-align: left;
+   font-weight: normal; /*para não ficar em negrito*/
+   padding: 1.5rem;
+
+}
+
+/*pseudo-class*/
+table th:first-child{ /*primeiro filho (nesse caso o "Usuário")*/
+   border-top-left-radius: .4rem;
+}
+
+table th:last-child{ /*último filho (nesse caso o "Seguidores")*/
+    border-top-right-radius: .4rem;
+}
+
+table td{
+ padding: 1.5rem;
+ text-align: left;/*só por garantia*/
+}
+
+
+/*aqui eu podeia colocar também table tr:nth-child(even)   even - par*/
+table tr {
+    background: #eee;
+}
+
+/*odd - impar (nesse caso eu to pedindo as linhas impar)*/
+table tr:nth-child(odd){
+    background-color: #ddd;
+}
+
+
+td.user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+td.user a{
+    text-decoration: none;  
+}
+
+td.user a p{
+ font-weight: bold;
+
+}
+
+td.user img{
+    width: 5rem; /*50px*/
+    height: 5rem;
+
+    object-fit: cover;
+    border-radius: 50%;/*deixar eles uma bolinha kkkk*/
+}
+
+td .remove {
+    background: none;
+    border: none;
+
+    color: red;
+
+    cursor: pointer;
+}
